@@ -24,14 +24,33 @@
                 <ons-toolbar-button icon="md-github"></ons-toolbar-button>
             </div>
         </ons-toolbar>
-        <p style="text-align: center; margin-top: 10px;">
-            <ons-search-input
-              placeholder="Search"
-              onchange="ons.notification.alert('Searched for: ' + this.value)"
-            ></ons-search-input>
-          </p>
+        <ons-carousel  swipeable auto-scroll overscrollable id="carousel">
+            <ons-carousel-item >
+                <img style="height: 250px; width: 375px" class="profile-thumbnail" src="1.jpg">
+            </ons-carousel-item>
+            <ons-carousel-item >
+                <img style="height: 250px; width: 375px" class="profile-thumbnail" src="2.jpg">
+            </ons-carousel-item>
+            <ons-carousel-item >
+                <img style="height: 250px; width: 375px" class="profile-thumbnail" src="3.jpg">
+            </ons-carousel-item>
+          </ons-carousel>
 
     </ons-page>
 </body>
-
+<script>var prev = function() {
+    var carousel = document.getElementById('carousel');
+    carousel.prev();
+  };
+  
+  var next = function() {
+    var carousel = document.getElementById('carousel');
+    carousel.next();
+  };
+  
+  ons.ready(function() {
+    var carousel = document.addEventListener('postchange', function(event) {
+      console.log('Changed to ' + event.activeIndex)
+    });
+  });</script>
 </html>
