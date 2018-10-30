@@ -1,0 +1,84 @@
+[debug] [2018-10-30T04:49:24.983Z] ----------------------------------------------------------------------
+[debug] [2018-10-30T04:49:24.985Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\korn\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-30T04:49:24.985Z] CLI Version:   4.2.1
+[debug] [2018-10-30T04:49:24.986Z] Platform:      win32
+[debug] [2018-10-30T04:49:24.986Z] Node Version:  v10.9.0
+[debug] [2018-10-30T04:49:24.987Z] Time:          Tue Oct 30 2018 11:49:24 GMT+0700 (GMT+07:00)
+[debug] [2018-10-30T04:49:24.987Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-30T04:49:25.003Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-30T04:49:25.004Z] > authorizing via signed-in user
+[debug] [2018-10-30T04:49:25.007Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-30T04:49:25.007Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-30T04:49:25.289Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T04:49:25.296Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/showpee-22442  
+ 
+[debug] [2018-10-30T04:49:26.790Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T04:49:26.791Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/showpee-22442  
+ 
+[debug] [2018-10-30T04:49:28.457Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\mobileApp\mobilequizz1'...
+[info] 
+[debug] [2018-10-30T04:49:28.459Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/325935737512/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-30T04:49:29.596Z] <<< HTTP RESPONSE 200
+[info] i  hosting[showpee-22442]: Serving hosting files from: public
+[info] +  hosting[showpee-22442]: Local server: http://localhost:5000
+[debug] [2018-10-30T06:29:52.980Z] ----------------------------------------------------------------------
+[debug] [2018-10-30T06:29:52.983Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\korn\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-30T06:29:52.983Z] CLI Version:   4.2.1
+[debug] [2018-10-30T06:29:52.983Z] Platform:      win32
+[debug] [2018-10-30T06:29:52.983Z] Node Version:  v10.9.0
+[debug] [2018-10-30T06:29:53.008Z] Time:          Tue Oct 30 2018 13:29:52 GMT+0700 (GMT+07:00)
+[debug] [2018-10-30T06:29:53.008Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-30T06:29:53.024Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-30T06:29:53.025Z] > authorizing via signed-in user
+[debug] [2018-10-30T06:29:53.027Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-30T06:29:53.027Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-30T06:29:53.687Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T06:29:53.696Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/showpee-22442  
+ 
+[debug] [2018-10-30T06:29:55.252Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T06:29:55.253Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/showpee-22442  
+ 
+[debug] [2018-10-30T06:29:56.899Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\mobileApp\mobilequizz1'...
+[info] 
+[debug] [2018-10-30T06:29:56.903Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/325935737512/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-30T06:29:57.950Z] <<< HTTP RESPONSE 200
+[info] i  hosting[showpee-22442]: Serving hosting files from: public
+[info] +  hosting[showpee-22442]: Local server: http://localhost:5000
+[debug] [2018-10-30T13:23:01.008Z] ----------------------------------------------------------------------
+[debug] [2018-10-30T13:23:01.011Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\korn\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-30T13:23:01.011Z] CLI Version:   4.2.1
+[debug] [2018-10-30T13:23:01.011Z] Platform:      win32
+[debug] [2018-10-30T13:23:01.011Z] Node Version:  v10.9.0
+[debug] [2018-10-30T13:23:01.012Z] Time:          Tue Oct 30 2018 20:23:01 GMT+0700 (GMT+07:00)
+[debug] [2018-10-30T13:23:01.012Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-30T13:23:01.030Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-30T13:23:01.031Z] > authorizing via signed-in user
+[debug] [2018-10-30T13:23:01.033Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-30T13:23:01.033Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-30T13:23:01.361Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T13:23:01.373Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/showpee-22442  
+ 
+[debug] [2018-10-30T13:23:02.684Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-30T13:23:02.687Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/showpee-22442  
+ 
+[debug] [2018-10-30T13:23:04.458Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\mobileApp\mobilequizz1'...
+[info] 
+[debug] [2018-10-30T13:23:04.465Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/325935737512/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-30T13:23:05.611Z] <<< HTTP RESPONSE 200
+[info] i  hosting[showpee-22442]: Serving hosting files from: public
+[info] +  hosting[showpee-22442]: Local server: http://localhost:5000
