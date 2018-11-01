@@ -71,9 +71,9 @@
                 <ons-carousel swipeable auto-scroll overscrollable id="carousel" style="height: 300px;">
                     <ons-carousel-item id=carousel1>
                     </ons-carousel-item>
-                    <ons-carousel-item id="carousel2" style="background:url('2.jpg') no-repeat center; background-size: contain;">
+                    <ons-carousel-item id=carousel2>
                     </ons-carousel-item>
-                    <ons-carousel-item id="carousel3" style="background:url('3.jpg') no-repeat center; background-size: contain;">
+                    <ons-carousel-item id=carousel3>
                     </ons-carousel-item>
                 </ons-carousel>
                 <div>
@@ -536,7 +536,11 @@
                 var data = doc.data();
                 $('#appname').html(data.appname);
                 var style = "background: url('" + data.slides[0] + "') no-repeat center; background-size: contain;";
-                $('#carousel1').attr('style', style);
+$('#carousel1').attr('style', style);
+                 var style = "background: url('" + data.slides[1] + "') no-repeat center; background-size: contain;";
+$('#carousel2').attr('style', style);
+                 var style = "background: url('" + data.slides[2] + "') no-repeat center; background-size: contain;";
+                $('#carousel3').attr('style', style);
                 var icon_template = $('#icon_template').html();
                 var html = ejs.render(icon_template, { categories: data.categories });
                 $('#icons').html(html);
