@@ -47,7 +47,7 @@
                 </ons-tab>
                 <ons-tab page="tab2.html" label="Product" icon="md-store" active-icon="md-store">
                 </ons-tab>
-                <ons-tab page="tab3.html" label="Cart" icon="md-shopping-cart" active-icon="md-shopping-cart">
+                <ons-tab id="addcart" page="tab3.html" label="Cart" icon="md-shopping-cart" badge="" active-icon="md-shopping-cart">
                 </ons-tab>
             </ons-tabbar>
         </ons-page>
@@ -112,16 +112,19 @@
                         <ons-toolbar-button icon="md-github"></ons-toolbar-button>
                     </div>
                 </ons-toolbar>
+
                 <ons-list-header>Thumbnails and titles</ons-list-header>
                 <div id=cart_show></div>
                 <script id=cart_template type="text/template">
 
                     <% product.forEach(function(cart){
                         var cart = cart.data(); 
+                        
                       %>
+                      
             <ons-list-item>
                 <div class="left">
-                    <img class="list-item__thumbnail" src="<%= cart.picture %>">
+                    <img class="list-item__thumbnail" src="<%= cart.picture[0] %>">
                 </div>
                 <div class="center">
                     <span class="list-item__title"> <%= cart.title %></span>
@@ -131,10 +134,10 @@
                 <div class="right">
                     <ons-toolbar-button icon="fa-trash" onclick="deleted(<%countCart%>)"></ons-toolbar-button>
                 </div>
-                
             </ons-list-item>
             <%});%>
         </script>
+
                 <ons-button modifier="large">PROCEED TO PAY</ons-button>
             </ons-page>
         </template>
@@ -155,11 +158,12 @@
                             var products = products.data();%>    
                         <ons-col width="50%" >
                             <ons-card onclick="getDetail('<%= products.title %>')" >
-                                <img class="" src="<%= products.picture %>" width="100%"height="120px"><br>
+                                <img class="" src="<%= products.picture[0] %>" width="100%"height="120px"><br>
                         
                                         <font><%= products.title %><br></font>
                                         <font size="3" color="#FF8C00">฿<%= products.price %></font><br>
                                         <font size="2" color="#808080"><%= products.catagory %></font>
+                                        <span class="rating-static rating-<%= products.rating*10%>"></span>
                              </ons-card>
                             </ons-col>
                      <%});%> 
@@ -174,14 +178,9 @@
         </template>
         <template id="tab4.html">
             <ons-page id="Tab2">
-                <ons-toolbar>
-                    <div class="left">
-                        <div class="left">
-                            <ons-back-button>Back</ons-back-button>
-                        </div>
-                        <ons-toolbar-button icon="md-favorite"></ons-toolbar-button>
-                    </div>
-                </ons-toolbar>
+
+
+
                 <script>
                     var detail = localStorage.getItem('detail');
                 </script>
@@ -189,17 +188,36 @@
                 <div id="detail"></div>
                 <script id="detail_template" type="text/template">
      <ons-row>
-                <% detail.forEach(function(detail){
-                    var detail = detail.data(); %>                         
+          <ons-toolbar> 
+              <% detail.forEach(function(detail){
+                    var detail = detail.data(); %>   
+                    <div class="left">
+                        <div class="left">
+                            <ons-back-button>Back</ons-back-button>
+                        </div>
+                        <ons-toolbar-button icon="md-favorite"></ons-toolbar-button>
+                    </div>
+                    <div class="center"><%= detail.title %></div>
+                </ons-toolbar>
+                                     
             <ons-col width="100%" >
                 <div style="height: 400px; padding: 1px 0 0 0;">
                     <ons-card>
                         <ons-list>       
-                            <img class="" src="<%= detail.picture %>" width="100%"height="300px"   border:3px solid #021a40; ><br>
+                                <ons-carousel swipeable auto-scroll overscrollable id="carousel" style="height: 300px;">
+                                        <ons-carousel-item id="carousel2" style="background:url(<%= detail.picture[0] %>) no-repeat center; background-size: contain;">
+                                        </ons-carousel-item>
+                                        <ons-carousel-item id="carousel2" style="background:url(<%= detail.picture[1] %>) no-repeat center; background-size: contain;">
+                                        </ons-carousel-item>
+                                        <ons-carousel-item id="carousel3" style="background:url(<%= detail.picture[2] %>) no-repeat center; background-size: contain;">
+                                        </ons-carousel-item>
+                                    </ons-carousel>
+                            <!-- <img class="" src="<%= detail.picture %>" width="100%"height="300px"   border:3px solid #021a40; ><br> -->
                                 <ons-list-header><center><%= detail.catagory %></center></ons-list-header>
                                 <ons-list-item><b><%= detail.title %></b><br></ons-list-item>
                                 <ons-list-item><font size="5" color="#FF8C00">฿<%= detail.price %></font></ons-list-item>
                                 <ons-list-item><font size="2" color="#808080"><%= detail.detail %></font></ons-list-item>
+                                <ons-list-item><span class="rating-static rating-<%= detail.rating*10%>"></span></ons-list-item>
                         </ons-list>
                         <p style="text-align: center; margin: 10px;">
                             <ons-button modifier="large" onclick="addtocart('<%= detail.title %>');">ADD PRODUCT</ons-button>
@@ -268,6 +286,217 @@
             .post-image {
                 width: 250px;
                 height: 200px;
+            }
+
+            .rating-static {
+                width: 60px;
+                height: 16px;
+                display: block;
+                background: url('http://www.itsalif.info/blogfiles/rating/star-rating.png') 0 0 no-repeat;
+            }
+
+            .rating-50 {
+                background-position: 0 0;
+            }
+
+            .rating-40 {
+                background-position: -12px 0;
+            }
+
+            .rating-30 {
+                background-position: -24px 0;
+            }
+
+            .rating-20 {
+                background-position: -36px 0;
+            }
+
+            .rating-10 {
+                background-position: -48px 0;
+            }
+
+            .rating-0 {
+                background-position: -60px 0;
+            }
+
+            .rating-1 {
+                background-position: -48px -16px;
+            }
+
+            .rating-11 {
+                background-position: -36px -16px;
+            }
+
+            .rating-21 {
+                background-position: -24px -16px;
+            }
+
+            .rating-31 {
+                background-position: -12px -16px;
+            }
+
+            .rating-41 {
+                background-position: 0 -16px;
+            }
+
+            .rating-2 {
+                background-position: -48px -16px;
+            }
+
+            .rating-12 {
+                background-position: -36px -16px;
+            }
+
+            .rating-22 {
+                background-position: -24px -16px;
+            }
+
+            .rating-32 {
+                background-position: -12px -16px;
+            }
+
+            .rating-42 {
+                background-position: 0 -16px;
+            }
+
+            .rating-3 {
+                background-position: -48px -16px;
+            }
+
+            .rating-13 {
+                background-position: -36px -16px;
+            }
+
+            .rating-23 {
+                background-position: -24px -16px;
+            }
+
+            .rating-33 {
+                background-position: -12px -16px;
+            }
+
+            .rating-43 {
+                background-position: 0 -16px;
+            }
+
+            .rating-4 {
+                background-position: -48px -16px;
+            }
+
+            .rating-14 {
+                background-position: -36px -16px;
+            }
+
+            .rating-24 {
+                background-position: -24px -16px;
+            }
+
+            .rating-34 {
+                background-position: -12px -16px;
+            }
+
+            .rating-44 {
+                background-position: 0 -16px;
+            }
+
+            .rating-5 {
+                background-position: -48px -16px;
+            }
+
+            .rating-15 {
+                background-position: -36px -16px;
+            }
+
+            .rating-25 {
+                background-position: -24px -16px;
+            }
+
+            .rating-35 {
+                background-position: -12px -16px;
+            }
+
+            .rating-45 {
+                background-position: 0 -16px;
+            }
+
+            .rating-6 {
+                background-position: -48px -16px;
+            }
+
+            .rating-16 {
+                background-position: -36px -16px;
+            }
+
+            .rating-26 {
+                background-position: -24px -16px;
+            }
+
+            .rating-36 {
+                background-position: -12px -16px;
+            }
+
+            .rating-46 {
+                background-position: 0 -16px;
+            }
+
+            .rating-7 {
+                background-position: -48px -16px;
+            }
+
+            .rating-17 {
+                background-position: -36px -16px;
+            }
+
+            .rating-27 {
+                background-position: -24px -16px;
+            }
+
+            .rating-37 {
+                background-position: -12px -16px;
+            }
+
+            .rating-47 {
+                background-position: 0 -16px;
+            }
+
+            .rating-8 {
+                background-position: -48px -16px;
+            }
+
+            .rating-18 {
+                background-position: -36px -16px;
+            }
+
+            .rating-28 {
+                background-position: -24px -16px;
+            }
+
+            .rating-38 {
+                background-position: -12px -16px;
+            }
+
+            .rating-48 {
+                background-position: 0 -16px;
+            }
+
+            .rating-9 {
+                background-position: -48px -16px;
+            }
+
+            .rating-19 {
+                background-position: -36px -16px;
+            }
+
+            .rating-29 {
+                background-position: -24px -16px;
+            }
+
+            .rating-39 {
+                background-position: -12px -16px;
+            }
+
+            .rating-49 {
+                background-position: 0 -16px;
             }
         </style>
     </ons-navigator>
@@ -415,6 +644,7 @@
         console.log(retrievedData);
         dataCart.push(retrievedData);
         ons.notification.toast(retrievedData + ' Add to Cart', { timeout: 2000 });
+        $("#addcart").attr('badge', dataCart.length);
     }
 
     function search(search) {
@@ -470,7 +700,12 @@
     }
     function deleted(Cartitem) {
         var deleted = dataCart.splice(Cartitem, 1);
-        ons.notification.toast('Remove the product from the basket.!', { timeout: 2000 });
+        ons.notification.alert('Remove the ' + deleted + ' from the basket!');
+        if (dataCart.length == 0) {
+            $("#addcart").attr('badge', '');
+        } else {
+            $("#addcart").attr('badge', dataCart.length);
+        }
         getCartData();
     }
 
